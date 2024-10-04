@@ -387,7 +387,7 @@ function Salespage() {
       <hr />
 
 
-      <div className='text-left md:px-[15em] md:pb-36 pb-[7em]'>
+      <div className='text-left md:px-[15em] md:pb-36 pb-[8em]'>
         <h1 className="text-2xl font-bold mb-4 pl-5 md:pl-0 py-5">FAQ</h1>
         <h2 className="text-6xl  pl-5 mt-2 text-blue-700 mb-6">कोई प्रश्न है?</h2>
 
@@ -432,7 +432,15 @@ function Salespage() {
       </div>
 
       {/* Countdown Timer and Footer with "Book Now" Link */}
-      <div className="fixed bottom-0 left-0 right-0 flex flex-col md:flex-row items-center bg-blue-200 p-4 shadow-lg justify-center">
+      <div className="fixed bottom-0 left-0 right-0 flex flex-col md:flex-row items-center bg-blue-200 p-4 shadow-lg justify-center z-10">
+          {/* Book Now Link (shown on top for mobile) */}
+          <div className="flex items-center mb-2 md:hidden bg-blue-700 p-1 rounded-lg px-5">
+            <Link href={salesData.book_now_link} passHref>
+              <p className="text-white text-xl cursor-pointer hover:text-blue-800 transition duration-200 ">
+                {salesData.book_now_text}
+              </p>
+            </Link>
+          </div>
         {/* Countdown Timer */}
         <div className="text-xl font-bold flex space-x-6 text-red-700 justify-center mb-2 md:mb-0">
           <div className="flex flex-col items-center">
@@ -454,9 +462,9 @@ function Salespage() {
         </div>
 
         {/* Book Now Link */}
-        <div className="flex items-center md:ml-6"> {/* Add margin on larger screens for spacing */}
+        <div className="hidden md:block items-center md:ml-6 bg-blue-700 rounded-lg p-1 px-5"> 
           <Link href={salesData.book_now_link} passHref>
-            <p className="text-blue-600 md:text-3xl cursor-pointer hover:text-blue-800 transition duration-200">
+            <p className="text-white md:text-2xl cursor-pointer hover:text-blue-800 transition duration-200">
               {salesData.book_now_text}
             </p>
           </Link>
