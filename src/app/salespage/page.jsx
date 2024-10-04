@@ -118,19 +118,19 @@ function Salespage() {
           {/* Countdown Timer */}
           <div className="col-span-2 text-3xl font-bold mt-4 flex justify-center space-x-6 text-red-700 px-3 md:px-0">
             <div className="flex flex-col items-center">
-              <span className="text-sm md:text-xl">{timeLeft.days || '00'}</span>
+              <span className="text-xl md:text-2xl">{timeLeft.days || '00'}</span>
               <span className="text-sm md:text-lg">days</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-sm md:text-xl">{timeLeft.hours || '00'}</span>
+              <span className="text-xl md:text-2xl">{timeLeft.hours || '00'}</span>
               <span className="text-sm md:text-lg">hours</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-sm md:text-xl">{timeLeft.minutes || '00'}</span>
+              <span className="text-xl md:text-2xl">{timeLeft.minutes || '00'}</span>
               <span className="text-sm md:text-lg">minutes</span>
             </div>
             <div className="flex flex-col items-center">
-              <span className="text-sm md:text-xl">{timeLeft.seconds || '00'}</span>
+              <span className="text-xl md:text-xl">{timeLeft.seconds || '00'}</span>
               <span className="text-sm md:text-lg">seconds</span>
             </div>
 
@@ -387,7 +387,7 @@ function Salespage() {
       <hr />
 
 
-      <div className='text-left md:px-[15em] md:pb-40 pb-[7em]'>
+      <div className='text-left md:px-[15em] md:pb-36 pb-[7em]'>
         <h1 className="text-2xl font-bold mb-4 pl-5 md:pl-0 py-5">FAQ</h1>
         <h2 className="text-6xl  pl-5 mt-2 text-blue-700 mb-6">कोई प्रश्न है?</h2>
 
@@ -431,41 +431,39 @@ function Salespage() {
         </div>
       </div>
 
-     {/* Countdown Timer and Footer with "Book Now" Link */}
-    {/* Countdown Timer and Footer with "Book Now" Link */}
-    <div className="fixed bottom-0 left-0 right-0 flex flex-col items-center bg-blue-200 p-4 shadow-lg">
-      {/* Countdown Timer */}
-      <div className="text-xl font-bold flex space-x-6 text-red-700 justify-center mb-2">
-        <div className="flex flex-col items-center">
-          <span className='pl-2'>{timeLeft.days || '00'}</span>
-          <span className="text-lg">days</span>
+      {/* Countdown Timer and Footer with "Book Now" Link */}
+      <div className="fixed bottom-0 left-0 right-0 flex flex-col md:flex-row items-center bg-blue-200 p-4 shadow-lg justify-center">
+        {/* Countdown Timer */}
+        <div className="text-xl font-bold flex space-x-6 text-red-700 justify-center mb-2 md:mb-0">
+          <div className="flex flex-col items-center">
+            <span className='pl-2'>{timeLeft.days || '00'}</span>
+            <span className="text-lg">days</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span>{timeLeft.hours || '00'}</span>
+            <span className="text-lg">hours</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span>{timeLeft.minutes || '00'}</span>
+            <span className="text-lg">minutes</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <span>{timeLeft.seconds || '00'}</span>
+            <span className="text-lg">seconds</span>
+          </div>
         </div>
-        <div className="flex flex-col items-center">
-          <span>{timeLeft.hours || '00'}</span>
-          <span className="text-lg">hours</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <span>{timeLeft.minutes || '00'}</span>
-          <span className="text-lg">minutes</span>
-        </div>
-        <div className="flex flex-col items-center">
-          <span>{timeLeft.seconds || '00'}</span>
-          <span className="text-lg">seconds</span>
-        </div>
-      </div>
 
-      {/* Footer with "Book Now" Link */}
-      <div className="flex items-center">
         {/* Book Now Link */}
-        <Link href={salesData.book_now_link} passHref>
-          <p className=" text-blue-600 md:text-3xl cursor-pointer hover:text-blue-800 transition duration-200">
-            {salesData.book_now_text}
-          </p>
-        </Link>
-
+        <div className="flex items-center md:ml-6"> {/* Add margin on larger screens for spacing */}
+          <Link href={salesData.book_now_link} passHref>
+            <p className="text-blue-600 md:text-3xl cursor-pointer hover:text-blue-800 transition duration-200">
+              {salesData.book_now_text}
+            </p>
+          </Link>
+        </div>
       </div>
-    </div>
-    </div>
+
+  </div>
   );
 }
 
