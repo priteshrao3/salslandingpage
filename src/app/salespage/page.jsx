@@ -341,65 +341,66 @@ function Salespage() {
 
 
       <div className='md:mt-20 mt-5 md:px-[15em]'>
-  <h4 className="text-xl font-bold mb-2 text-black">Diet Plan Benefits</h4>
-  <p className="text-4xl italic mb-4 text-blue-500 p-3">What&apos;s inside?</p>
-  <p className="text-lg italic mb-4 text-black">
-    हम आपको एक विशेष वेबिनार में आमंत्रित करते हैं जिसमें किडनी रोगियों के लिए सबसे प्रभावी आहार योजना के बारे में विस्तृत जानकारी दी जाएगी। इस वेबिनार में, आप सीखेंगे:
-  </p>
+        <h4 className="text-xl font-bold mb-2 text-black">Diet Plan Benefits</h4>
+        <p className="text-4xl italic mb-4 text-blue-500 p-3">What&apos;s inside?</p>
+        <p className="text-lg italic mb-4 text-black">
+          हम आपको एक विशेष वेबिनार में आमंत्रित करते हैं जिसमें किडनी रोगियों के लिए सबसे प्रभावी आहार योजना के बारे में विस्तृत जानकारी दी जाएगी। इस वेबिनार में, आप सीखेंगे:
+        </p>
 
-  {/* Grid Layout with 4 Cards per Row */}
-  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
-    {salesData.what_inside && salesData.what_inside.length > 0 ? (
-      salesData.what_inside.map((item) => (
-        <div
-          key={item.id}
-          className="border border-gray-300 rounded-lg shadow-lg p-4 bg-white text-center"
-        >
-          <div className="flex justify-center items-center mb-2"> {/* Flex centering */}
-            <img
-              src={item.image}
-              alt={item.name}
-              className="w-12 h-12 object-contain" // Smaller size to resemble icons
-            />
-          </div>
-          <h4 className="text-md font-semibold mb-1 text-black">{item.name}</h4>
-          <p className="text-sm italic mb-2 text-gray-600">{item.description}</p>
+        {/* Grid Layout with 2 Cards per Row on mobile, 4 Cards per Row on larger screens */}
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
+          {salesData.what_inside && salesData.what_inside.length > 0 ? (
+            salesData.what_inside.map((item) => (
+              <div
+                key={item.id}
+                className="border border-gray-300 rounded-lg shadow-lg p-4 bg-white text-center"
+              >
+                <div className="flex justify-center items-center mb-2"> {/* Flex centering */} 
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-12 h-12 object-contain" // Smaller size to resemble icons
+                  />
+                </div>
+                <h4 className="text-md font-semibold mb-1 text-black">{item.name}</h4>
+                <p className="text-sm italic mb-2 text-gray-600">{item.description}</p>
+              </div>
+            ))
+          ) : (
+            <p>No data available</p>
+          )}
         </div>
-      ))
-    ) : (
-      <p>No data available</p>
-    )}
-  </div>
-  
-  <Link href={salesData.book_now_link} passHref>
-    <p className="text-white text-2xl p-2 md:mt-20 mt-5 rounded-lg cursor-pointer bg-blue-700">
-      {salesData.book_now_text}
-    </p>
-  </Link>
-</div>
+        
+        <Link href={salesData.book_now_link} passHref>
+          <p className="text-white text-2xl p-2 md:mt-20 mt-5 rounded-lg cursor-pointer bg-blue-700">
+            {salesData.book_now_text}
+          </p>
+        </Link>
+      </div>
 
 
 
       <div className="about-me-section p-6 bg-blue-50 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 gap-4 md:px-[20em] md:mt-20 mt-5">
-        <div className='text-left mt-10'>
-          <h3 className="text-2xl font-bold text-orange-400 mb-4">{salesData.aboutme.title}</h3>
-          <h1 dangerouslySetInnerHTML={{ __html: salesData.aboutme.description }} />
-          <Link href={salesData.book_now_link} passHref>
-              <p className="text-white text-center md:text-2xl text-xl p-1 mt-10 rounded-lg cursor-pointer bg-blue-700">
-              {salesData.book_now_text}
-              </p>
-            </Link>
-        </div>
-        <div className="flex justify-center items-center mt-5">
+        {/* Image will be shown first on mobile */}
+        <div className="flex justify-center items-center mt-5 order-1 md:order-2">
           <img
             src={salesData.aboutme.image}
             alt={salesData.aboutme.title}
             className="rounded-lg shadow-lg max-w-xs h-auto"
           />
         </div>
+        
+        <div className='text-left mt-10 order-2 md:order-1'>
+          <h3 className="text-2xl font-bold text-orange-400 mb-4">{salesData.aboutme.title}</h3>
+          <h1 dangerouslySetInnerHTML={{ __html: salesData.aboutme.description }} />
+          
+          <Link href={salesData.book_now_link} passHref>
+            <p className="text-white text-center md:text-2xl text-xl p-1 mt-10 rounded-lg cursor-pointer bg-blue-700">
+              {salesData.book_now_text}
+            </p>
+          </Link>
+        </div>
       </div>
-
-
 
 
       <div className="testimonial-section md:p-10 bg-blue-50 md:px-[20em]">
@@ -451,7 +452,7 @@ function Salespage() {
       <hr />
 
 
-      <div className='text-left md:px-[15em] md:pb-36 pb-[8em]'>
+      <div className='text-left md:px-[15em] md:pb-36 pb-[5em]'>
         <h1 className="text-2xl font-bold mb-4 pl-5 md:pl-0 py-5">FAQ</h1>
         <h2 className="text-6xl  pl-5 mt-2 text-blue-700 mb-6">कोई प्रश्न है?</h2>
 
@@ -496,44 +497,46 @@ function Salespage() {
       </div>
 
       {/* Countdown Timer and Footer with "Book Now" Link */}
-      <div className="fixed bottom-0 left-0 right-0 flex flex-col md:flex-row items-center bg-blue-200 p-4 shadow-lg justify-center z-10">
-          {/* Book Now Link (shown on top for mobile) */}
-          <div className="flex items-center mb-2 md:hidden bg-blue-700 p-1 rounded-lg px-5">
-            <Link href={salesData.book_now_link} passHref>
-              <p className="text-white text-xl cursor-pointer hover:text-blue-800 transition duration-200 ">
-                {salesData.book_now_text}
-              </p>
-            </Link>
-          </div>
-        {/* Countdown Timer */}
-        <div className="text-xl font-bold flex space-x-6 text-red-700 justify-center mb-2 md:mb-0">
-          <div className="flex flex-col items-center">
-            <span className='pl-2'>{timeLeft.days || '00'}</span>
-            <span className="text-lg">days</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span>{timeLeft.hours || '00'}</span>
-            <span className="text-lg">hours</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span>{timeLeft.minutes || '00'}</span>
-            <span className="text-lg">minutes</span>
-          </div>
-          <div className="flex flex-col items-center">
-            <span>{timeLeft.seconds || '00'}</span>
-            <span className="text-lg">seconds</span>
-          </div>
-        </div>
+      <div className="fixed bottom-0 left-0 right-0 flex flex-col md:flex-row items-center bg-blue-200 shadow-lg justify-center z-10 p-1">
+  {/* Book Now Link (shown on top for mobile) */}
+  <div className="flex items-center md:hidden bg-blue-700 p-1 rounded-lg px-5">
+    <Link href={salesData.book_now_link} passHref>
+      <p className="text-white text-lg md:text-xl cursor-pointer hover:text-blue-800 transition duration-200 ">
+        {salesData.book_now_text}
+      </p>
+    </Link>
+  </div>
+  
+  {/* Countdown Timer */}
+  <div className="text-lg md:text-xl font-bold flex space-x-6 text-red-700 justify-center">
+    <div className="flex flex-col items-center">
+      <span className='pl-2'>{timeLeft.days || '00'}</span>
+      <span className="text-sm md:text-lg">days</span>
+    </div>
+    <div className="flex flex-col items-center">
+      <span>{timeLeft.hours || '00'}</span>
+      <span className="text-sm md:text-lg">hours</span>
+    </div>
+    <div className="flex flex-col items-center">
+      <span>{timeLeft.minutes || '00'}</span>
+      <span className="text-sm md:text-lg">minutes</span>
+    </div>
+    <div className="flex flex-col items-center">
+      <span>{timeLeft.seconds || '00'}</span>
+      <span className="text-sm md:text-lg">seconds</span>
+    </div>
+  </div>
 
-        {/* Book Now Link */}
-        <div className="hidden md:block items-center md:ml-6 bg-blue-700 rounded-lg p-1 px-5"> 
-          <Link href={salesData.book_now_link} passHref>
-            <p className="text-white md:text-2xl cursor-pointer hover:text-blue-800 transition duration-200">
-              {salesData.book_now_text}
-            </p>
-          </Link>
-        </div>
-      </div>
+  {/* Book Now Link */}
+  <div className="hidden md:block items-center md:ml-6 bg-blue-700 rounded-lg p-1"> 
+    <Link href={salesData.book_now_link} passHref>
+      <p className="text-white text-lg md:text-2xl cursor-pointer hover:text-blue-800 transition duration-200">
+        {salesData.book_now_text}
+      </p>
+    </Link>
+  </div>
+</div>
+
 
   </div>
   );
