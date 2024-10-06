@@ -218,6 +218,63 @@ function Salespage() {
         <h2 className="text-center text-white text-3xl font-bold mb-6">TARGET AUDIENCE</h2>
         <p className='text-center text-4xl text-white font-bold mb-6'>यह आहार योजना किसके लिए है?</p>
 
+
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 py-10">
+          <div className="border border-gray-300 rounded-lg shadow-lg p-4 bg-white text-center">
+            {/* <div className="flex justify-center items-center mb-2">
+              <img
+                src="path_to_icon1" // Replace with actual image path
+                alt="Icon for CKD Patients"
+                className="w-12 h-12 object-contain"
+              />
+            </div> */}
+            <h4 className="text-md font-semibold mb-1 text-black">
+              क्रोनिक किडनी डिजीज (CKD) के मरीज: जिन लोगों की किडनी की बीमारी लंबे समय से है, उन्हें इस आहार योजना का पालन करना चाहिए।
+            </h4>
+          </div>
+
+          <div className="border border-gray-300 rounded-lg shadow-lg p-4 bg-white text-center">
+            {/* <div className="flex justify-center items-center mb-2">
+              <img
+                src="path_to_icon2" // Replace with actual image path
+                alt="Icon for Dialysis Patients"
+                className="w-12 h-12 object-contain"
+              />
+            </div> */}
+            <h4 className="text-md font-semibold mb-1 text-black">
+              डायलिसिस पर जा रहे लोग: जिन लोगों को डायलिसिस करवाना पड़ता है, उनके लिए यह आहार योजना बहुत महत्वपूर्ण होती है।
+            </h4>
+          </div>
+
+          <div className="border border-gray-300 rounded-lg shadow-lg p-4 bg-white text-center">
+            {/* <div className="flex justify-center items-center mb-2">
+              <img
+                src="path_to_icon3" // Replace with actual image path
+                alt="Icon for Kidney Transplant Patients"
+                className="w-12 h-12 object-contain"
+              />
+            </div> */}
+            <h4 className="text-md font-semibold mb-1 text-black">
+              किडनी प्रत्यारोपण के बाद के मरीज: किडनी प्रत्यारोपण के बाद भी, इस आहार योजना का पालन करने से प्रत्यारोपित किडनी को स्वस्थ रखने में मदद मिलती है।
+            </h4>
+          </div>
+
+          <div className="border border-gray-300 rounded-lg shadow-lg p-4 bg-white text-center">
+            {/* <div className="flex justify-center items-center mb-2">
+              <img
+                src="path_to_icon4" // Replace with actual image path
+                alt="Icon for High Blood Pressure and Diabetes Patients"
+                className="w-12 h-12 object-contain"
+              />
+            </div> */}
+            <h4 className="text-md font-semibold mb-1 text-black">
+              उच्च रक्तचाप और मधुमेह के मरीज: ये दोनों बीमारियां किडनी को नुकसान पहुंचा सकती हैं, इसलिए इन मरीजों के लिए भी यह आहार योजना फायदेमंद हो सकती है।
+            </h4>
+          </div>
+        </div>
+
+        <h2 className="text-center text-white text-3xl font-bold mb-6">Success Story</h2>
         <Swiper
           slidesPerView={1}
           spaceBetween={20}
@@ -284,36 +341,43 @@ function Salespage() {
 
 
       <div className='md:mt-20 mt-5 md:px-[15em]'>
-        <h4 className="text-xl font-bold mb-2 text-black">Diet Plan Benefits</h4>
-        <p className="text-4xl italic mb-4 text-blue-500 p-3">What&apos;s inside?</p>
-        <p className="text-lg italic mb-4 text-black">हम आपको एक विशेष वेबिनार में आमंत्रित करते हैं जिसमें किडनी रोगियों के लिए सबसे प्रभावी आहार योजना के बारे में विस्तृत जानकारी दी जाएगी। इस वेबिनार में, आप सीखेंगे:</p>
+  <h4 className="text-xl font-bold mb-2 text-black">Diet Plan Benefits</h4>
+  <p className="text-4xl italic mb-4 text-blue-500 p-3">What&apos;s inside?</p>
+  <p className="text-lg italic mb-4 text-black">
+    हम आपको एक विशेष वेबिनार में आमंत्रित करते हैं जिसमें किडनी रोगियों के लिए सबसे प्रभावी आहार योजना के बारे में विस्तृत जानकारी दी जाएगी। इस वेबिनार में, आप सीखेंगे:
+  </p>
 
-        {/* Grid Layout with 4 Cards per Row */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
-          {salesData.what_inside && salesData.what_inside.length > 0 ? (
-            salesData.what_inside.map((item) => (
-              <div key={item.id} className="border border-gray-300 rounded-lg shadow-lg p-4 bg-white text-center">
-                <div className="flex justify-center items-center mb-2"> {/* Added flex centering */}
-                  <img 
-                    src={item.image} 
-                    alt={item.name} 
-                    className="w-40 h-20 object-cover"  // Adjusted width and height
-                  />
-                </div>
-                <h4 className="text-md font-semibold mb-1 text-black">{item.name}</h4>
-                <p className="text-sm italic mb-2 text-gray-600">{item.description}</p>
-              </div>
-            ))
-          ) : (
-            <p>No data available</p>
-          )}
+  {/* Grid Layout with 4 Cards per Row */}
+  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-10">
+    {salesData.what_inside && salesData.what_inside.length > 0 ? (
+      salesData.what_inside.map((item) => (
+        <div
+          key={item.id}
+          className="border border-gray-300 rounded-lg shadow-lg p-4 bg-white text-center"
+        >
+          <div className="flex justify-center items-center mb-2"> {/* Flex centering */}
+            <img
+              src={item.image}
+              alt={item.name}
+              className="w-12 h-12 object-contain" // Smaller size to resemble icons
+            />
+          </div>
+          <h4 className="text-md font-semibold mb-1 text-black">{item.name}</h4>
+          <p className="text-sm italic mb-2 text-gray-600">{item.description}</p>
         </div>
-        <Link href={salesData.book_now_link} passHref>
-          <p className="text-white text-2xl p-2 md:mt-20 mt-5 rounded-lg cursor-pointer bg-blue-700">
-            {salesData.book_now_text}
-          </p>
-        </Link>
-      </div>
+      ))
+    ) : (
+      <p>No data available</p>
+    )}
+  </div>
+  
+  <Link href={salesData.book_now_link} passHref>
+    <p className="text-white text-2xl p-2 md:mt-20 mt-5 rounded-lg cursor-pointer bg-blue-700">
+      {salesData.book_now_text}
+    </p>
+  </Link>
+</div>
+
 
 
       <div className="about-me-section p-6 bg-blue-50 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 gap-4 md:px-[20em] md:mt-20 mt-5">
@@ -370,7 +434,7 @@ function Salespage() {
                 <img 
                   src={award.image} 
                   alt={`Award ${award.id}`} 
-                  className="w-auto md:h-[500px] mx-auto mb-4 object-contain" 
+                  className="w-auto md:h-auto mx-auto mb-4 object-contain" 
                 />
               </SwiperSlide>
             ))
