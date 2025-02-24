@@ -23,7 +23,7 @@ function Salespage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://www.bkarogyam.com/lapissalespage/');
+        const response = await axios.get('https://main.bkarogyam.com/lapissalespage/');
         setSalesData(response.data[0]);
         setTimeLeft(calculateTimeLeft(response.data[0].end_time));
       } catch (error) {
